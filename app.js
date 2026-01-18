@@ -6,6 +6,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/contacts", contactRouters);
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to contact book application." });
 });
@@ -20,5 +21,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.use("/api/contacts", contactRouters);
 module.exports = app;
